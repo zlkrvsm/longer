@@ -1,0 +1,10 @@
+Package: longer
+Title: Tools to work with longitudinal data sets
+Version: 0.0.0.9000
+Authors@R: 
+    person("Vinicius", "Maia", , "vinicius.de_souza_maia@ekh.lu.se", role = c("aut", "cre"))
+Description: This package collects some utility functions to work with longitudinal datasets, especially to play nice with data.table workflows, but it should be agnostic to the use of base r, tidyverse, and so on.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

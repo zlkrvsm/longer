@@ -1,0 +1,68 @@
+# Package longitudinalData, by Christophe Genolini and collaborators
+Strong imputation function.
+Plots trajectories and mean trajectories (even in 3d).
+qualityCriterion function.
+
+Documentation has a lot of typos, which is fixable. Package 
+seems outdated.
+
+Unclear to me who the target audience for this package is. Clearly 
+technical, focused on k-means and other clustering techniques.
+
+# Package brolgar, by Nicholas Tierney, Di Cook and Tania Prvan.
+
+Uses tsibble. Tidyverse oriented.
+
+Sampling function! sample_n_keys() and sample_frac_keys().
+I guess everyone has the same problem. However, these functions
+require the tsibble, which I would like to avoid. I want to
+make it agnostic to the class, so it works on data.frames and
+data.tables as well as tsibbles.
+
+Graphical helpers, facet_sample(), interesting. Allows you to
+create multiple panels in ggplot facets with a few individuals
+in each. Specialized, I am not so interested in it.
+
+Features! I had forgot about those from fabletools and feasts.
+They provide good helpers for individual level summaries of means,
+trajectories, etc. I do want to implement something like this,
+but again, agnostic!
+
+n_obs() and n_keys() are kind of useless because data.table
+and base already provide good enough functions for that. uniqueN()
+comes to mind, for example.
+
+Thing about features is that they require setup, and are already
+easily accesible in data.table and ggplot through grouped summaries,
+so I do not see much of an advantage. I do see a win in providing
+easy access to specific "feature combos", like the 5-number summary
+and the feat_monotonic function for numeric trajectories, but 
+it is still missing Proportions-over and a way to feature binomial or
+multinomial "trajectories".
+
+Interesting stratify_keys function. Easy way to split the data by
+some criterion. Could be implemented in a generic form for data.frames.
+
+# Package 'longitudinal' by Rainer Opgen-Rhein and Korbinian Strimmer.
+Seems to be focused on genetics. Implements a longitudinal data stru-
+cture similar to tsibble. Has a longitudinal utils suite of functions
+which is worth cribbing, to check for repeated observation in time,
+whether observations are equally spaced, and for combining and con-
+densing longitudinal objects. 
+
+It looks great, but I think some of this 'longitudinal' class is 
+unnecessary overhead on data.frames. I like the checking functions,
+but I am not convinced we need a special class a la tsibble or 
+longitudinal objects.
+
+Moreover, I am doing this mostly to learn the ropes, and hopefully 
+once I feel a little more comfortable, I can start contributing
+on something like brolgar or data.table itself.
+
+Many longitudinal packages (found an extra one, called lgtdl) also 
+deal with the imputation of data in gaps between observations a
+lot, which is understandable, so my package could also deal with
+that. I think imputation is a bit of misnomer though, because 
+ultimately it is about the broader process of creating longitudinal 
+variables, rather than dataset specific ways of treating missing
+that in between observations.
